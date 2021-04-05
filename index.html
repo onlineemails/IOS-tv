@@ -1,4 +1,6 @@
+
 <html>
+
 <head>
 	<link rel="manifest" href="manifest.json">
 
@@ -6,44 +8,37 @@
 	<title>stay standalone</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="width=device-width,initial-scale=1.5,user-scalable=no">
-<style>
-.container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-#wrapper { width: 710px; height: 1420px; padding: 0; overflow: hidden; }
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-	#scaled-frame { width: 1000px; height: 2000px; border: 0px; }
-#scaled-frame {
-    zoom: 0.71;
-    -moz-transform: scale(0.71);
-    -moz-transform-origin: 0 0;
-    -o-transform: scale(0.71);
-    -o-transform-origin: 0 0;
-    -webkit-transform: scale(0.71);
-    -webkit-transform-origin: 0 0;
-}
-	@media screen and (-webkit-min-device-pixel-ratio:0) {
 
-#scaled-frame  { zoom: 1;  }
-
-}
-</style>
-	
+	<script type="text/javascript">
+		(function(document,navigator,standalone) {
+			// prevents links from apps from oppening in mobile safari
+			// this javascript must be the first script in your <head>
+			if ((standalone in navigator) && navigator[standalone]) {
+				var curnode, location=document.location, stop=/^(a|html)$/i;
+				document.addEventListener('click', function(e) {
+					curnode=e.target;
+					while (!(stop).test(curnode.nodeName)) {
+						curnode=curnode.parentNode;
+					}
+					// Condidions to do this only on links to your own app
+					// if you want all links, use if('href' in curnode) instead.
+					if(
+						'href' in curnode && // is a link
+						(chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+						(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+							chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+					) {
+						e.preventDefault();
+						location.href = curnode.href;
+					}
+				},false);
+			}
+		})(document,window.navigator,'standalone');
+	</script>
 </head>
-<body style="margin:0px !important; overflow: hidden;">
-	<div id="wrapper"><iframe id="scaled-frame" src="https://gapstore.fit/sans/"></iframe></div>
+<body style="margin:0px !important;">
+	<iframe id="result"  src="https://gapstore.fit/sans/" style="width:100%; height:100%;">
+          </iframe>
 	
 
 </body>
