@@ -6,38 +6,37 @@
 
 
 	<title>stay standalone</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="viewport" content="width=device-width,initial-scale=1.5,user-scalable=no">
-    <style>
-	.callrates {
-    position: relative;
-   
-    height: auto;
-overflow: hidden;
--webkit-overflow-scrolling:touch !important;
-
-}
-
-.callrates iframe {
-    position: relative;
-    top:0;
-    left: 0;
-    
-	max-width: 100%;
-    height: 100%;
-  
-}
 	
-	</style>
+
 	
 </head>
 
-	<div class="callrates">
+	
 
 
 <iframe src="https://gapstore.fit/sans/" width="" height="0" allowfullscreen=" " frameborder="0" scroll="no">
 
-</div>
+<script>
+        // Selecting the iframe element
+        var frame = document.getElementById("Iframe");
+          
+        // Adjusting the iframe height onload event
+        frame.onload = function()
+        // function execute while load the iframe
+        {
+          // set the height of the iframe as 
+          // the height of the iframe content
+          frame.style.height = 
+          frame.contentWindow.document.body.scrollHeight + 'px';
+           
+  
+         // set the width of the iframe as the 
+         // width of the iframe content
+         frame.style.width  = 
+          frame.contentWindow.document.body.scrollWidth+'px';
+              
+        }
+        </script>
 	
 
 
