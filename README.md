@@ -1,1 +1,3 @@
-# IOS-tv
+---
+permalink: /index.html
+---
