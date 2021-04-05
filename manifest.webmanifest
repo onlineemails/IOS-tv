@@ -1,21 +1,18 @@
+// 20210405115136
+// https://mdn.github.io/pwa-examples/a2hs/manifest.webmanifest
+
 {
-  "dir": "ltr",
-  "lang": "it",
-  "name": "stay standalone",
-  "short_name": "stay standalone",
-  "scope": "/",
-  "display": "standalone",
-  "start_url": "https://onlineemails.github.io/IOS-tv/index.html",
-  "background_color": "#000000",
-  "theme_color": "transparent",
-  "description": "",
-  "orientation": "any",
-  "related_applications": [
-    
-  ],
-  "prefer_related_applications": false,
+  "background_color": "purple",
+  "description": "Shows random fox pictures. Hey, at least it isn't cats.",
+  "display": "fullscreen",
   "icons": [
-    
+    {
+      "src": "icon/fox-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
   ],
-  "url": "https://onlineemails.github.io/IOS-tv/"
+  "name": "Awesome fox pictures",
+  "short_name": "Foxes",
+  "start_url": "/pwa-examples/a2hs/index.html"
 }
