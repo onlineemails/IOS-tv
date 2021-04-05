@@ -1,0 +1,24 @@
+// 20210405112039
+// http://lionsdl.fit/ios/manifest.json
+
+{
+  "dir": "ltr",
+  "lang": "it",
+  "name": "stay standalone",
+  "short_name": "stay standalone",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://onlineemails.github.io/IOS-tv/index.html",
+  "background_color": "#000000",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "any",
+  "related_applications": [
+    
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    
+  ],
+  "url": "https://onlineemails.github.io/IOS-tv/"
+}
