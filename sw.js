@@ -1,26 +1,15 @@
-// This is the "Offline copy of assets" service worker
-
-const CACHE = "pwabuilder-offline";
-const QUEUE_NAME = "bgSyncQueue";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('sw-cache').then(function(cache) {
+      return cache.add('index.html');
+    })
+  );
 });
-
-const bgSyncPlugin = new workbox.backgroundSync.Plugin(QUEUE_NAME, {
-  maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
+ 
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
 });
-
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE,
-    plugins: [
-      bgSyncPlugin
-    ]
-  })
-);
