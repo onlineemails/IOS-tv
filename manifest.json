@@ -1,7 +1,7 @@
 {
-   "name":"MJ IOS",
-   "short_name":"MJ IOS",
-   "description":"MJ IOS",
+   "name":"Movie Javan",
+   "short_name":"Movie Javan",
+   "description":"Movie Javan",
    "start_url":"/IOS-tv/index.html",
    "display":"fullscreen",
    "background_color": "#FFAD00",
