@@ -1,4 +1,4 @@
-// This is the "Offline copy of assets" service worker
+
 
 const CACHE = "pwabuilder-offline";
 const QUEUE_NAME = "bgSyncQueue";
