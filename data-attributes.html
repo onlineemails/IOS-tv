@@ -16,7 +16,11 @@
 
 <body>
 
-<div class="countdown countdown-container container">
+<div class="countdown countdown-container container"
+     data-start="1362139200"
+     data-end="1388461320"
+     data-now="1387461319"
+     data-border-color="rgba(255, 255, 255, .8)">
     <div class="clock row">
         <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
             <div class="wrap">
@@ -77,16 +81,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/kinetic.js"></script>
 <script type="text/javascript" src="../jquery.final-countdown.js"></script>
-<script type="text/javascript">  
-    $('document').ready(function() {
-        'use strict';
-        
-    	$('.countdown').final_countdown({
-            'start': 1362139200,
-            'end': 1388461320,
-            'now': 1387461319        
-        });
-    });
+<script type="text/javascript">
+	$('.countdown').final_countdown();
 </script>
 
 </body>
